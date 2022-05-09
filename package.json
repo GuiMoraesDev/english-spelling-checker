@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/react-audio-player": "^0.13.0",
     "axios": "^0.27.2",
     "next": "12.1.6",
     "react": "18.1.0",
