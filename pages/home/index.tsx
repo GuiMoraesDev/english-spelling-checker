@@ -1,11 +1,16 @@
+import type { NextPage } from "next";
+
+import React from "react";
+
 import axios from "axios";
+
 import AudioPlayer from "components/AudioPlayer";
 import Button from "components/Button";
 import Input from "components/Input";
 import Keyboard from "components/Keyboard";
+
 import useLoading from "hooks/useLoading";
-import type { NextPage } from "next";
-import React from "react";
+
 import { getSpelling, GetSpellingResponse } from "services/api.spelling";
 
 import * as Styles from "./styles";

@@ -27,7 +27,6 @@ declare module 'styled-components' {
         body1: FlattenInterpolation<ThemeProps<DefaultTheme>>;
         body2: FlattenInterpolation<ThemeProps<DefaultTheme>>;
         body3: FlattenInterpolation<ThemeProps<DefaultTheme>>;
-        body4: FlattenInterpolation<ThemeProps<DefaultTheme>>;
       };
     };
     transition: {
