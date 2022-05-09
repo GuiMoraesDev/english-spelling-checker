@@ -3,10 +3,11 @@ import React from "react";
 import * as Styles from "./styles";
 
 interface KeyboardProps {
-  keyboardKeys: string[];
+  keyboardKeys?: string[];
 }
 
-const Keyboard = ({ keyboardKeys }: KeyboardProps) => {
+const Keyboard = ({ keyboardKeys = [] }: KeyboardProps) => {
+  console.log('keyboardKeys', keyboardKeys);
   return (
     <Styles.Container>
       {keyboardKeys.map((keyboardKey) => (
