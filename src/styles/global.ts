@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
   * {
@@ -13,11 +13,14 @@ export default createGlobalStyle`
   body {
     font-size: ${({ theme }) => theme.sizes.common.x4};
   
+    color: ${({ theme }) => theme.themeColors.text};
     background-color: ${({ theme }) => theme.themeColors.canvas};
   }
 
   html, body, #__next {
     font-family: ${({ theme }) => theme.typography.fontFamily.body};
+
+    ${({ theme }) => theme.typography.variants.body1};
 
     -webkit-font-smoothing: antialiased;
 
@@ -63,7 +66,7 @@ export default createGlobalStyle`
   }
 
   input::placeholder {
-    color: ${({ theme }) => theme.colors.neutrals['400']};
+    color: ${({ theme }) => theme.colors.neutrals["400"]};
   }
 
   img {
