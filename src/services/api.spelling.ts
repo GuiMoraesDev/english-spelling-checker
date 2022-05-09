@@ -1,17 +1,17 @@
-import { AxiosResponse, CancelToken } from 'axios';
+import { AxiosResponse, CancelToken } from "axios";
 
-import api from './api';
+import api from "./api";
 
 export interface GetSpellingResponse {
   id: string;
-  audioUrl: string;
-  letterPool: string[];
+  "audio-url": string;
+  "letter-pool": string[];
 }
 
 const getSpelling = async (
   cancelToken: CancelToken
 ): Promise<AxiosResponse<GetSpellingResponse>> => {
-  const response = await api.get('/spelling', {
+  const response = await api.get("/spelling", {
     cancelToken,
   });
 

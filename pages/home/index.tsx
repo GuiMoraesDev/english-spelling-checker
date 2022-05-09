@@ -50,11 +50,11 @@ const Home: NextPage = () => {
       </Styles.Header>
 
       <Styles.InputsWrapper>
-        <AudioPlayer src={spellingData?.audioUrl} />
+        <AudioPlayer src={spellingData?.["audio-url"]} />
 
         <Input id="text-input" type="text" className="text-input-component" />
 
-        <Keyboard keyboardKeys={spellingData?.letterPool || []} />
+        <Keyboard keyboardKeys={spellingData?.["letter-pool"]} />
       </Styles.InputsWrapper>
 
       <Button
