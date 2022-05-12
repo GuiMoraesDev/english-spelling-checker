@@ -1,8 +1,65 @@
 import React, { AudioHTMLAttributes } from "react";
-// import { Container } from './styles';
 
-const AudioPlayer = (props: AudioHTMLAttributes<HTMLAudioElement>): JSX.Element => {
-  return <audio {...props} controls />;
+import { Play, Stop } from "phosphor-react";
+
+import * as Styles from "./styles";
+
+const AudioPlayer = (
+  props: AudioHTMLAttributes<HTMLAudioElement>
+): JSX.Element => {
+  const [isPlaying, setIsPlaying] = React.useState(false);
+
+  const audioRef = React.createRef<HTMLAudioElement>();
+
+  const PlayerIcon = isPlaying ? Stop : Play;
+
+  const onPlay = React.useCallback(() => {
+    setIsPlaying(true);
+  }, []);
+
+  const onPause = React.useCallback(() => {
+    setIsPlaying(false);
+  }, []);
+
+  const handlePlayerClick = React.useCallback(() => {
+    if (isPlaying) {
+      audioRef.current?.pause();
+    } else {
+      audioRef.current?.play();
+    }
+  }, [audioRef, isPlaying]);
+
+  const TRIGGER_KEY = React.useMemo(() => ["Space"], []);
+
+  const handlePressKey = React.useCallback(
+    (event: React.KeyboardEvent<HTMLLabelElement>) => {
+      if (TRIGGER_KEY.includes(event.code)) {
+        handlePlayerClick();
+      }
+    },
+    [TRIGGER_KEY, handlePlayerClick]
+  );
+
+  return (
+    <Styles.AudioContainer>
+      <Styles.AudioPlayerWrapper
+        tabIndex={1}
+        onKeyDown={handlePressKey}
+        onClick={handlePlayerClick}
+        isPlaying={isPlaying}
+      >
+        <PlayerIcon className="icon" />
+        <audio
+          {...props}
+          className="audio-tag"
+          onPlay={onPlay}
+          onPause={onPause}
+          controls
+          ref={audioRef}
+        />
+      </Styles.AudioPlayerWrapper>
+    </Styles.AudioContainer>
+  );
 };
 
 export default AudioPlayer;

@@ -10,6 +10,8 @@ export default createGlobalStyle`
     outline: 0;
   }
 
+  html { font-size: 62.5% }
+
   body {
     font-size: ${({ theme }) => theme.sizes.common.x4};
   
