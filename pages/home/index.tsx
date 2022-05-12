@@ -202,6 +202,7 @@ const Home: NextPage = () => {
         disabled={isButtonDisabled}
         onClick={handleCheckAnswer}
         label={answerValidation !== null ? "Next" : "Check"}
+        isBold
       />
     </Styles.Container>
   );

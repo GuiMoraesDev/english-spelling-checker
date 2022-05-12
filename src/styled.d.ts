@@ -1,6 +1,6 @@
-import 'styled-components';
+import "styled-components";
 
-declare module 'styled-components' {
+declare module "styled-components" {
   export interface DefaultTheme {
     breakpoints: {
       mobileS: string;
@@ -42,48 +42,48 @@ declare module 'styled-components' {
     };
     sizes: {
       partition: {
-        'x1/1': string;
-        'x1/2': string;
-        'x1/3': string;
-        'x2/3': string;
-        'x1/4': string;
-        'x2/4': string;
-        'x3/4': string;
-        'x1/5': string;
-        'x2/5': string;
-        'x3/5': string;
-        'x4/5': string;
-        'x1/6': string;
-        'x2/6': string;
-        'x3/6': string;
-        'x4/6': string;
-        'x5/6': string;
-        'x1/12': string;
-        'x2/12': string;
-        'x3/12': string;
-        'x4/12': string;
-        'x5/12': string;
-        'x6/12': string;
-        'x7/12': string;
-        'x8/12': string;
-        'x9/12': string;
-        'x10/12': string;
-        'x11/12': string;
+        "x1/1": string;
+        "x1/2": string;
+        "x1/3": string;
+        "x2/3": string;
+        "x1/4": string;
+        "x2/4": string;
+        "x3/4": string;
+        "x1/5": string;
+        "x2/5": string;
+        "x3/5": string;
+        "x4/5": string;
+        "x1/6": string;
+        "x2/6": string;
+        "x3/6": string;
+        "x4/6": string;
+        "x5/6": string;
+        "x1/12": string;
+        "x2/12": string;
+        "x3/12": string;
+        "x4/12": string;
+        "x5/12": string;
+        "x6/12": string;
+        "x7/12": string;
+        "x8/12": string;
+        "x9/12": string;
+        "x10/12": string;
+        "x11/12": string;
       };
       common: {
         x0: string;
         xpx: string;
-        'x0.5': string;
+        "x0.5": string;
         x1: string;
-        'x1.5': string;
+        "x1.5": string;
         x2: string;
-        'x2.5': string;
+        "x2.5": string;
         x3: string;
-        'x3.5': string;
+        "x3.5": string;
         x4: string;
-        'x4.5': string;
+        "x4.5": string;
         x5: string;
-        'x5.5': string;
+        "x5.5": string;
         x6: string;
         x7: string;
         x8: string;
@@ -113,79 +113,80 @@ declare module 'styled-components' {
     colors: {
       transparent: string;
       neutrals: {
-        '000': string;
-        '050': string;
-        '100': string;
-        '200': string;
-        '300': string;
-        '400': string;
-        '500': string;
-        '600': string;
-        '700': string;
-        '800': string;
-        '850': string;
-        '900': string;
-        '999': string;
-      };
-      primary: {
-        '050': string;
-        '100': string;
-        '200': string;
-        '300': string;
-        '400': string;
-        '500': string;
-        '600': string;
-        '700': string;
-        '800': string;
-        '900': string;
-      };
-      grapes: {
-        '050': string;
-        '100': string;
-        '200': string;
-        '300': string;
-        '400': string;
-        '500': string;
-        '600': string;
-        '700': string;
-        '800': string;
-        '900': string;
-      };
-      alert: {
-        '050': string;
-        '100': string;
-        '200': string;
-        '300': string;
-        '400': string;
-        '500': string;
-        '600': string;
-        '700': string;
-        '800': string;
-        '900': string;
+        "000": string;
+        "050": string;
+        "100": string;
+        "150": string;
+        "200": string;
+        "300": string;
+        "400": string;
+        "500": string;
+        "600": string;
+        "700": string;
+        "800": string;
+        "850": string;
+        "900": string;
+        "999": string;
       };
       success: {
-        '050': string;
-        '100': string;
-        '200': string;
-        '300': string;
-        '400': string;
-        '500': string;
-        '600': string;
-        '700': string;
-        '800': string;
-        '900': string;
+        "050": string;
+        "100": string;
+        "150": string;
+        "200": string;
+        "300": string;
+        "400": string;
+        "500": string;
+        "600": string;
+        "700": string;
+        "800": string;
+        "850": string;
+        "900": string;
+        "950": string;
+      };
+      warning: {
+        "050": string;
+        "100": string;
+        "150": string;
+        "200": string;
+        "300": string;
+        "400": string;
+        "500": string;
+        "600": string;
+        "700": string;
+        "800": string;
+        "850": string;
+        "900": string;
+        "950": string;
+      };
+      error: {
+        "050": string;
+        "100": string;
+        "150": string;
+        "200": string;
+        "300": string;
+        "400": string;
+        "500": string;
+        "600": string;
+        "700": string;
+        "800": string;
+        "850": string;
+        "900": string;
+        "950": string;
       };
       info: {
-        '050': string;
-        '100': string;
-        '200': string;
-        '300': string;
-        '400': string;
-        '500': string;
-        '600': string;
-        '700': string;
-        '800': string;
-        '900': string;
+        "050": string;
+        "100": string;
+        "150": string;
+        "200": string;
+        "300": string;
+        "400": string;
+        "500": string;
+        "600": string;
+        "700": string;
+        "800": string;
+        "850": string;
+        "900": string;
+        "950": string;
       };
     };
     themeColors: {
@@ -202,10 +203,8 @@ declare module 'styled-components' {
       textInverted: string;
       border: string;
       borderInverted: string;
-      brandPrimaryLighter: string;
       brandPrimaryLight: string;
       brandPrimary: string;
-      brandPrimaryDark: string;
     };
     rounded: {
       full: string;
@@ -218,17 +217,11 @@ declare module 'styled-components' {
       none: string;
       regular: string;
       short: string;
-      shortAlert: string;
-      shortInfo: string;
     };
     borders: {
       none: string;
       solid: string;
-      dashed: string;
-      dotted: string;
       solidDarker: string;
-      dashedDarker: string;
-      dottedDarker: string;
     };
   }
 }

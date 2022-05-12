@@ -30,7 +30,7 @@ export const InputContainer = styled.label<InputDefaultPropsThatMakeStyles>`
     if (isCorrect !== undefined) {
       return isCorrect
         ? theme.colors.success["700"]
-        : theme.colors.alert["700"];
+        : theme.colors.error["700"];
     }
   }};
 
@@ -40,7 +40,7 @@ export const InputContainer = styled.label<InputDefaultPropsThatMakeStyles>`
   &:hover,
   &:focus-within {
     border-color: ${({ theme, error }) =>
-      error ? theme.colors.alert[700] : theme.themeColors.borderInverted};
+      error ? theme.colors.error[700] : theme.themeColors.borderInverted};
     box-shadow: ${({ theme }) => theme.shadows.short};
   }
 
@@ -166,5 +166,5 @@ export const AlertMessage = styled.p<AlertMessageProps>`
   ${({ theme }) => theme.typography.variants.body2};
 
   color: ${({ theme, type }) =>
-    type === "success" ? theme.colors.success[800] : theme.colors.alert[800]};
+    type === "success" ? theme.colors.success[800] : theme.colors.error[800]};
 `;

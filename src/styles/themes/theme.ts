@@ -24,11 +24,7 @@ const appTheme: DefaultTheme = {
   borders: {
     none: "none",
     solid: `${sizes.common.xpx} solid ${themeColors.border}`,
-    dashed: `${sizes.common.xpx} dashed ${themeColors.border}`,
-    dotted: `${sizes.common.xpx} dotted ${themeColors.border}`,
     solidDarker: `${sizes.common.xpx} solid ${themeColors.borderInverted}`,
-    dashedDarker: `${sizes.common.xpx} dashed ${themeColors.borderInverted}`,
-    dottedDarker: `${sizes.common.xpx} dotted ${themeColors.borderInverted}`,
   },
   typography,
   rounded: {
@@ -42,8 +38,6 @@ const appTheme: DefaultTheme = {
     none: "none",
     regular: "0px 3px 6px 1px rgba(0, 0, 0, 0.16)",
     short: `1px 0px 3px 0px ${colors.neutrals["200"]}`,
-    shortAlert: `1px 0px 3px 0px ${colors.alert["200"]}`,
-    shortInfo: `1px 0px 3px 0px ${colors.info["200"]}`,
   },
 };
 
