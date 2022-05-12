@@ -14,7 +14,11 @@
 
 ## Description of that project 📖
 
-This project it's to test the user spelling skills
+This project it's to test the user spelling skills.</br>
+
+## Project layout 📜
+
+The project layout can be found the this [link](https://www.figma.com/file/JrEhup3mslJ4ob0fFIImB3/EnglishSpellingChecker?node-id=201%3A184)
 
 ## Requirements 🛑
 
