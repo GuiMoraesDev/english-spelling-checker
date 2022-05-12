@@ -1,6 +1,7 @@
+import { endianness } from "os";
 import styled, { css } from "styled-components";
 
-import { InputDefaultPropsThatMakeStyles } from ".";
+import { AlertProps, InputDefaultPropsThatMakeStyles } from ".";
 
 export const Container = styled.div`
   position: relative;
@@ -25,7 +26,13 @@ export const InputContainer = styled.label<InputDefaultPropsThatMakeStyles>`
 
   border: ${({ theme }) => theme.borders.solid};
 
-  border-color: ${({ theme, error }) => error && theme.colors.alert["700"]};
+  border-color: ${({ theme, isCorrect }) => {
+    if (isCorrect !== undefined) {
+      return isCorrect
+        ? theme.colors.success["700"]
+        : theme.colors.alert["700"];
+    }
+  }};
 
   transition: box-shadow ${({ theme }) => theme.transition.fast},
     border-color ${({ theme }) => theme.transition.fast};
@@ -149,4 +156,15 @@ export const ActionButton = styled.button`
 
     fill: ${({ theme }) => theme.colors.neutrals["900"]};
   }
+`;
+
+interface AlertMessageProps {
+  type: AlertProps["type"];
+}
+
+export const AlertMessage = styled.p<AlertMessageProps>`
+  ${({ theme }) => theme.typography.variants.body2};
+
+  color: ${({ theme, type }) =>
+    type === "success" ? theme.colors.success[800] : theme.colors.alert[800]};
 `;

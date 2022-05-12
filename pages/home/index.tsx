@@ -7,7 +7,7 @@ import { formatLetterCode } from "helpers";
 
 import AudioPlayer from "components/AudioPlayer";
 import Button from "components/Button";
-import Input from "components/Input";
+import Input, { AlertProps } from "components/Input";
 import Keyboard from "components/Keyboard";
 
 import useLoading from "hooks/useLoading";
@@ -16,6 +16,7 @@ import {
   getSpelling,
   GetSpellingResponse,
   postSpelling,
+  PostSpellingResponse,
 } from "services/api.spelling";
 
 import * as Styles from "./styles";
@@ -35,6 +36,8 @@ const Home: NextPage = () => {
     ClickedLettersProps[]
   >([]);
   const [remainingLetters, setRemainingLetters] = React.useState<string[]>([]);
+  const [answerValidation, setAnswerValidation] =
+    React.useState<PostSpellingResponse | null>(null);
 
   const loadExercise = React.useCallback(async () => {
     loadingData.set.loading();
@@ -47,6 +50,7 @@ const Home: NextPage = () => {
       setSpellingData(response.data);
       setRemainingLetters(response.data["letter-pool"]);
       setClickedLetters([]);
+      setAnswerValidation(null);
 
       loadingData.set.init();
     } catch {
@@ -127,7 +131,7 @@ const Home: NextPage = () => {
     try {
       const postSpellingCancelToken = axios.CancelToken.source();
 
-      await postSpelling(
+      const response = await postSpelling(
         {
           id: spellingData?.id,
           answer: clickedLetters.map((letter) => letter.letter).join(""),
@@ -135,9 +139,13 @@ const Home: NextPage = () => {
         postSpellingCancelToken.token
       );
 
-      loadingSubmit.set.init();
+      setAnswerValidation(response.data);
 
-      loadExercise();
+      setTimeout(() => {
+        loadingSubmit.set.init();
+
+        loadExercise();
+      }, 1000);
     } catch {
       loadingSubmit.set.error();
     }
@@ -148,6 +156,17 @@ const Home: NextPage = () => {
     loadingSubmit.set,
     spellingData?.id,
   ]);
+
+  const inputAlert: AlertProps | undefined = React.useMemo(
+    () =>
+      answerValidation
+        ? {
+            text: answerValidation?.["correct-answer"],
+            type: answerValidation?.correct ? "success" : "error",
+          }
+        : undefined,
+    [answerValidation]
+  );
 
   return (
     <Styles.Container>
@@ -163,9 +182,11 @@ const Home: NextPage = () => {
           id="text-input"
           type="text"
           dimension="sm"
+          isCorrect={answerValidation?.correct}
           className="text-input-component"
           value={clickedLetters.map((letter) => letter.letter).join("")}
           onKeyDown={handleOnKeyDown}
+          alert={inputAlert}
           readOnly
         />
 
@@ -180,7 +201,7 @@ const Home: NextPage = () => {
         className="button-component"
         disabled={isButtonDisabled}
         onClick={handleCheckAnswer}
-        label="Check"
+        label={answerValidation !== null ? "Next" : "Check"}
       />
     </Styles.Container>
   );
