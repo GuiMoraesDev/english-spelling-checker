@@ -3,6 +3,9 @@ import type { NextPage } from "next";
 import React from "react";
 
 import axios from "axios";
+
+import { TOTAL_STEPS } from "consts";
+
 import { formatLetterCode } from "helpers";
 
 import AudioPlayer from "components/AudioPlayer";
@@ -38,6 +41,7 @@ const Home: NextPage = () => {
   const [remainingLetters, setRemainingLetters] = React.useState<string[]>([]);
   const [answerValidation, setAnswerValidation] =
     React.useState<PostSpellingResponse | null>(null);
+  const [currentStep, setCurrentStep] = React.useState(1);
 
   const loadExercise = React.useCallback(async () => {
     loadingData.set.loading();
@@ -56,7 +60,12 @@ const Home: NextPage = () => {
     } catch {
       loadingData.set.error();
     }
-  }, [loadingData.set]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  React.useEffect(() => {
+    loadExercise();
+  }, [loadExercise]);
 
   const handleClickedLetter = React.useCallback(
     (letter: string, index: number) => {
@@ -116,11 +125,6 @@ const Home: NextPage = () => {
     spellingData,
   ]);
 
-  React.useEffect(() => {
-    loadExercise();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const handleCheckAnswer = React.useCallback(async () => {
     if (isButtonDisabled || !spellingData?.id) {
       return;
@@ -144,13 +148,24 @@ const Home: NextPage = () => {
       setTimeout(() => {
         loadingSubmit.set.init();
 
-        loadExercise();
+        if (currentStep + 1 <= TOTAL_STEPS) {
+          setCurrentStep((state) => {
+            if (state + 1 <= TOTAL_STEPS) {
+              return state + 1;
+            }
+
+            return state;
+          });
+
+          loadExercise();
+        }
       }, 1000);
     } catch {
       loadingSubmit.set.error();
     }
   }, [
     clickedLetters,
+    currentStep,
     isButtonDisabled,
     loadExercise,
     loadingSubmit.set,
@@ -170,6 +185,10 @@ const Home: NextPage = () => {
 
   return (
     <Styles.Container>
+      <Styles.Steps>
+        {currentStep}/{TOTAL_STEPS}
+      </Styles.Steps>
+
       <Styles.Header>
         <h1>Find the correct word</h1>
         <p>Listen the audio bellow and type the matching term</p>
