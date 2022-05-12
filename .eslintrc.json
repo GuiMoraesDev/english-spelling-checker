@@ -14,10 +14,12 @@
           "/^next/",
           "/^react/",
           "module",
+          "/^consts/",
+          "/^helpers/",
           "/^components/",
           "/^hooks/",
-          "/^styles/",
           "/^services/",
+          "/^styles/",
           ["parent", "sibling", "index"]
         ],
         "newlinesBetween": "always"
