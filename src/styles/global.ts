@@ -20,6 +20,9 @@ export default createGlobalStyle`
   }
 
   html, body, #__next {
+    min-width: 100vw;
+    min-height: 100vh;
+
     font-family: ${({ theme }) => theme.typography.fontFamily.body};
 
     ${({ theme }) => theme.typography.variants.body1};

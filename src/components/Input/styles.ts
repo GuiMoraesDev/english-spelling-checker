@@ -48,35 +48,35 @@ export const InputContainer = styled.label<InputDefaultPropsThatMakeStyles>`
       return css`
         ${theme.typography.variants.body3};
 
-        height: ${theme.sizes.common.x9};
+        height: ${theme.sizes.common.x7};
       `;
 
     if (dimension === "sm")
       return css`
         ${theme.typography.variants.body3};
 
-        height: ${theme.sizes.common.x10};
+        height: ${theme.sizes.common.x8};
       `;
 
     if (dimension === "md")
       return css`
         ${theme.typography.variants.body1};
 
-        height: ${theme.sizes.common.x11};
+        height: ${theme.sizes.common.x9};
       `;
 
     if (dimension === "lg")
       return css`
         ${theme.typography.variants.body1};
 
-        height: ${theme.sizes.common.x12};
+        height: ${theme.sizes.common.x10};
       `;
 
     if (dimension === "xl")
       return css`
         ${theme.typography.variants.body1};
 
-        height: ${theme.sizes.common.x14};
+        height: ${theme.sizes.common.x12};
       `;
   }}
 

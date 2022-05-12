@@ -27,16 +27,12 @@ const Button = ({
   variant = "primary",
   ...props
 }: ButtonProps): JSX.Element => {
-  const handleClick = React.useCallback(() => {
-    return props.onClick?.();
-  }, [props]);
-
   return (
     <Styles.Button
       dimension={dimension}
       rounded={rounded}
       variant={variant}
-      onClick={handleClick}
+      onClick={props.onClick}
       isDisabled={Boolean(props.disabled)}
       {...props}
     >
