@@ -74,9 +74,10 @@ export const SocialMediaLinksWrapper = styled.div`
         stroke: ${({ theme }) => theme.colors.info[400]};
       }
 
-      svg.instagram {
-        rect:not(:first-of-type),
-        circle {
+      svg.facebook {
+        line,
+        circle,
+        path {
           stroke: ${({ theme }) => theme.colors.error[600]};
         }
       }
@@ -87,6 +88,10 @@ export const SocialMediaLinksWrapper = styled.div`
         path,
         circle {
           stroke: ${({ theme }) => theme.colors.info[700]};
+        }
+
+        circle:last-of-type {
+          fill: ${({ theme }) => theme.colors.info[700]};
         }
       }
     }

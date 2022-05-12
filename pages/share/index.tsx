@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import React from "react";
 
-import { TwitterLogo, InstagramLogo, LinkedinLogo } from "phosphor-react";
+import { TwitterLogo, FacebookLogo, LinkedinLogo } from "phosphor-react";
 
 import * as Styles from "./styles";
 
@@ -28,15 +28,27 @@ const share = (): JSX.Element => {
 
       <Styles.ContentWrapper>
         <Styles.SocialMediaLinksWrapper>
-          <a href="https://google.com" className="icon" tabIndex={1}>
+          <a
+            href={process.env.NEXT_PUBLIC_SHARE_TWITTER}
+            className="icon"
+            tabIndex={1}
+          >
             <TwitterLogo className="twitter" />
           </a>
 
-          <a href="https://google.com" className="icon" tabIndex={2}>
-            <InstagramLogo className="instagram" />
+          <a
+            href={process.env.NEXT_PUBLIC_SHARE_FACEBOOK}
+            className="icon"
+            tabIndex={2}
+          >
+            <FacebookLogo className="facebook" />
           </a>
 
-          <a href="https://google.com" className="icon" tabIndex={3}>
+          <a
+            href={process.env.NEXT_PUBLIC_SHARE_LINKEDIN}
+            className="icon"
+            tabIndex={3}
+          >
             <LinkedinLogo className="linkedin" />
           </a>
         </Styles.SocialMediaLinksWrapper>
