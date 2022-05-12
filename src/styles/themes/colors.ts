@@ -88,7 +88,7 @@ const themeColors = {
 
   textLighter: colors.neutrals["400"],
   textLight: colors.neutrals["500"],
-  text: colors.neutrals["900"],
+  text: colors.neutrals["800"],
   textInvertedLight: colors.neutrals["100"],
   textInverted: colors.neutrals["000"],
 

@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import { useRouter } from "next/router";
 
 import React from "react";
 
@@ -30,6 +31,8 @@ interface ClickedLettersProps {
 }
 
 const Home: NextPage = () => {
+  const router = useRouter();
+
   const loadingData = useLoading();
   const loadingSubmit = useLoading();
 
@@ -158,6 +161,8 @@ const Home: NextPage = () => {
           });
 
           loadExercise();
+        } else {
+          router.push("/share");
         }
       }, 1000);
     } catch {
@@ -169,6 +174,7 @@ const Home: NextPage = () => {
     isButtonDisabled,
     loadExercise,
     loadingSubmit.set,
+    router,
     spellingData?.id,
   ]);
 
