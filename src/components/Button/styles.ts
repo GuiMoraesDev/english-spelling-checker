@@ -44,7 +44,9 @@ export const Button = styled.button<ButtonDefaultPropsThatMakeStyles>`
     height: ${({ theme }) => theme.sizes.common.x4};
   }
 
-  &:hover {
+  :hover,
+  :focus-within,
+  :focus {
     background-color: ${({ theme }) => theme.themeColors.brandPrimaryLight};
   }
 
