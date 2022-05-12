@@ -12,7 +12,11 @@ import Keyboard from "components/Keyboard";
 
 import useLoading from "hooks/useLoading";
 
-import { getSpelling, GetSpellingResponse } from "services/api.spelling";
+import {
+  getSpelling,
+  GetSpellingResponse,
+  postSpelling,
+} from "services/api.spelling";
 
 import * as Styles from "./styles";
 
@@ -23,6 +27,7 @@ interface ClickedLettersProps {
 
 const Home: NextPage = () => {
   const loadingData = useLoading();
+  const loadingSubmit = useLoading();
 
   const [spellingData, setSpellingData] =
     React.useState<GetSpellingResponse | null>(null);
@@ -41,6 +46,7 @@ const Home: NextPage = () => {
 
       setSpellingData(response.data);
       setRemainingLetters(response.data["letter-pool"]);
+      setClickedLetters([]);
 
       loadingData.set.init();
     } catch {
@@ -93,10 +99,55 @@ const Home: NextPage = () => {
     [handleClickedLetter, remainingLetters]
   );
 
+  const isButtonDisabled: boolean = React.useMemo(() => {
+    return (
+      loadingData.status !== "initial" ||
+      loadingSubmit.status !== "initial" ||
+      clickedLetters.length !== spellingData?.["letter-pool"].length
+    );
+  }, [
+    clickedLetters.length,
+    loadingData.status,
+    loadingSubmit.status,
+    spellingData,
+  ]);
+
   React.useEffect(() => {
     loadExercise();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const handleCheckAnswer = React.useCallback(async () => {
+    if (isButtonDisabled || !spellingData?.id) {
+      return;
+    }
+
+    loadingSubmit.set.loading();
+
+    try {
+      const postSpellingCancelToken = axios.CancelToken.source();
+
+      await postSpelling(
+        {
+          id: spellingData?.id,
+          answer: clickedLetters.map((letter) => letter.letter).join(""),
+        },
+        postSpellingCancelToken.token
+      );
+
+      loadingSubmit.set.init();
+
+      loadExercise();
+    } catch {
+      loadingSubmit.set.error();
+    }
+  }, [
+    clickedLetters,
+    isButtonDisabled,
+    loadExercise,
+    loadingSubmit.set,
+    spellingData?.id,
+  ]);
 
   return (
     <Styles.Container>
@@ -127,8 +178,9 @@ const Home: NextPage = () => {
 
       <Button
         className="button-component"
-        disabled={loadingData.status !== "initial"}
-        label="Next"
+        disabled={isButtonDisabled}
+        onClick={handleCheckAnswer}
+        label="Check"
       />
     </Styles.Container>
   );
