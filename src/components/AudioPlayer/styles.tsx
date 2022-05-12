@@ -20,8 +20,8 @@ export const AudioPlayerWrapper = styled.label<AudioPlayerWrapperProps>`
   align-items: center;
   justify-content: center;
 
-  width: ${({ theme }) => theme.sizes.common.x6};
-  height: ${({ theme }) => theme.sizes.common.x6};
+  width: ${({ theme }) => theme.sizes.common.x9};
+  height: ${({ theme }) => theme.sizes.common.x9};
 
   border: ${({ theme }) => theme.borders.solid};
   border-color: ${({ theme }) => theme.themeColors.borderInverted};
@@ -35,6 +35,11 @@ export const AudioPlayerWrapper = styled.label<AudioPlayerWrapperProps>`
     display: none;
   }
 
+  svg.icon {
+    width: 40%;
+    height: 40%;
+  }
+
   :hover,
   :focus-within,
   :focus {
@@ -43,8 +48,8 @@ export const AudioPlayerWrapper = styled.label<AudioPlayerWrapperProps>`
     box-shadow: ${({ theme }) => theme.shadows.regular};
 
     svg.icon {
-      path,
-      rect {
+      &.play path,
+      &.stop rect {
         stroke: ${({ theme, isPlaying }) =>
           isPlaying ? theme.colors.error["600"] : theme.colors.info["600"]};
       }
