@@ -11,8 +11,6 @@ const AudioPlayer = (
 
   const audioRef = React.createRef<HTMLAudioElement>();
 
-  const PlayerIcon = isPlaying ? Stop : Play;
-
   const onPlay = React.useCallback(() => {
     setIsPlaying(true);
   }, []);
@@ -48,7 +46,11 @@ const AudioPlayer = (
         onClick={handlePlayerClick}
         isPlaying={isPlaying}
       >
-        <PlayerIcon className="icon" />
+        {isPlaying ? (
+          <Stop className="icon stop" />
+        ) : (
+          <Play className="icon play" />
+        )}
         <audio
           {...props}
           className="audio-tag"
