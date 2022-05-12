@@ -7,11 +7,10 @@ interface KeyboardProps {
 }
 
 const Keyboard = ({ keyboardKeys = [] }: KeyboardProps) => {
-  console.log('keyboardKeys', keyboardKeys);
   return (
     <Styles.Container>
-      {keyboardKeys.map((keyboardKey) => (
-        <button key={keyboardKey} type="button">
+      {keyboardKeys.map((keyboardKey, keyboardKeyIndex) => (
+        <button key={`${keyboardKey}_${keyboardKeyIndex}`} type="button">
           {keyboardKey}
         </button>
       ))}

@@ -4,14 +4,14 @@ export const Container = styled.div`
   display: flex;
 
   flex-direction: column;
-  align-items: space-between;
+  align-items: center;
   justify-content: center;
 
-
-  max-width: ${({theme}) => theme.sizes.common.x96};
+  width: ${({ theme }) => theme.sizes.partition["x1/1"]};
+  max-width: ${({ theme }) => theme.sizes.common.x96};
 
   margin: auto;
-  padding: ${({theme}) => theme.sizes.common.x4};
+  padding: ${({ theme }) => theme.sizes.common.x4};
 `;
 
 export const Header = styled.header``;
