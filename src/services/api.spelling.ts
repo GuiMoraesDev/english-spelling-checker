@@ -18,4 +18,32 @@ const getSpelling = async (
   return response;
 };
 
-export { getSpelling };
+export interface PostSpellingParams {
+  id: string;
+  answer: string;
+}
+
+export interface PostSpellingResponse {
+  correct: boolean;
+  "correct-answer": string;
+}
+
+const postSpelling = async (
+  { id, answer }: PostSpellingParams,
+  cancelToken: CancelToken
+): Promise<AxiosResponse<PostSpellingResponse>> => {
+  const response = await api.post(
+    "/spelling",
+    {
+      id,
+      answer,
+    },
+    {
+      cancelToken,
+    }
+  );
+
+  return response;
+};
+
+export { getSpelling, postSpelling };
