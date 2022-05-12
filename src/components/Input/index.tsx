@@ -16,7 +16,6 @@ interface InputDefaultProps
     InputHTMLAttributes<HTMLInputElement> {
   id: string;
   label?: string;
-  handleOnChange?(value: string): void;
 }
 
 const Input: React.ForwardRefRenderFunction<
@@ -27,7 +26,6 @@ const Input: React.ForwardRefRenderFunction<
     id,
     error,
     label,
-    handleOnChange,
     dimension = "md",
     rounded = "sm",
     className,
@@ -35,12 +33,6 @@ const Input: React.ForwardRefRenderFunction<
   },
   ref
 ) => {
-  const handleChangeValue = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
-
-    handleOnChange?.(value);
-  };
-
   return (
     <Styles.Container className={className}>
       {label && (
@@ -55,7 +47,6 @@ const Input: React.ForwardRefRenderFunction<
       >
         <Styles.InputComponent
           placeholder={props.placeholder || "Type here..."}
-          onChange={handleChangeValue}
           ref={ref}
           id={id}
           disabled={props.isDisabled}

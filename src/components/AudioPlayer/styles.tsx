@@ -40,7 +40,7 @@ export const AudioPlayerWrapper = styled.label<AudioPlayerWrapperProps>`
   :focus {
     border-color: ${({ theme, isPlaying }) =>
       isPlaying ? theme.colors.alert["600"] : theme.colors.info["600"]};
-    border-width: ${({ theme }) => theme.sizes.common["x0.5"]};
+    box-shadow: ${({ theme }) => theme.shadows.regular};
 
     svg.icon {
       path,

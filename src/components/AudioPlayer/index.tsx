@@ -29,7 +29,7 @@ const AudioPlayer = (
     }
   }, [audioRef, isPlaying]);
 
-  const TRIGGER_KEY = React.useMemo(() => ["Space"], []);
+  const TRIGGER_KEY = React.useMemo(() => ["Space", "Enter"], []);
 
   const handlePressKey = React.useCallback(
     (event: React.KeyboardEvent<HTMLLabelElement>) => {
