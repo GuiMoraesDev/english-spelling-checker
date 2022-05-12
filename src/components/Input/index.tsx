@@ -8,7 +8,13 @@ export interface InputDefaultPropsThatMakeStyles {
   dimension?: "xs" | "sm" | "md" | "lg" | "xl";
   rounded?: keyof DefaultTheme["rounded"];
   isDisabled?: boolean;
+  isCorrect?: boolean;
   error?: string;
+}
+
+export interface AlertProps {
+  text: string;
+  type: "success" | "error";
 }
 
 interface InputDefaultProps
@@ -16,6 +22,7 @@ interface InputDefaultProps
     InputHTMLAttributes<HTMLInputElement> {
   id: string;
   label?: string;
+  alert?: AlertProps;
 }
 
 const Input: React.ForwardRefRenderFunction<
@@ -28,7 +35,9 @@ const Input: React.ForwardRefRenderFunction<
     label,
     dimension = "md",
     rounded = "sm",
+    isCorrect,
     className,
+    alert,
     ...props
   },
   ref
@@ -44,6 +53,7 @@ const Input: React.ForwardRefRenderFunction<
       <Styles.InputContainer
         dimension={dimension}
         rounded={rounded}
+        isCorrect={isCorrect}
       >
         <Styles.InputComponent
           placeholder={props.placeholder || "Type here..."}
@@ -53,6 +63,12 @@ const Input: React.ForwardRefRenderFunction<
           {...props}
         />
       </Styles.InputContainer>
+
+      {alert && (
+        <Styles.AlertMessage type={alert?.type}>
+          {alert.text}
+        </Styles.AlertMessage>
+      )}
     </Styles.Container>
   );
 };
