@@ -23,7 +23,7 @@ import {
   PostSpellingResponse,
 } from "services/api.spelling";
 
-import * as Styles from "./styles";
+import * as Styles from "styles/pages/home.styles";
 
 interface ClickedLettersProps {
   letter: string;
