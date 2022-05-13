@@ -2,7 +2,7 @@ import React, { ButtonHTMLAttributes } from "react";
 
 import { DefaultTheme } from "styled-components";
 
-import * as Styles from "./styles";
+import * as Styles from "./styles.module";
 
 export interface ButtonDefaultPropsThatMakeStyles {
   dimension?: "xs" | "sm" | "md" | "lg" | "xl";

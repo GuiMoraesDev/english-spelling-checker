@@ -2,7 +2,7 @@ import React, { AudioHTMLAttributes } from "react";
 
 import { Play, Stop } from "phosphor-react";
 
-import * as Styles from "./styles";
+import * as Styles from "./styles.module";
 
 const AudioPlayer = (
   props: AudioHTMLAttributes<HTMLAudioElement>

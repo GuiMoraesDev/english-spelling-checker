@@ -2,7 +2,7 @@ import React from "react";
 
 import { formatLetterCode } from "helpers";
 
-import * as Styles from "./styles";
+import * as Styles from "./styles.module";
 
 interface KeyboardProps {
   keyboardKeys?: string[];

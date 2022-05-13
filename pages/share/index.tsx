@@ -4,7 +4,7 @@ import React from "react";
 
 import { TwitterLogo, FacebookLogo, LinkedinLogo } from "phosphor-react";
 
-import * as Styles from "./styles";
+import * as Styles from "styles/pages/share.styles";
 
 const share = (): JSX.Element => {
   return (
