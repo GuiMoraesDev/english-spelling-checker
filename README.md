@@ -20,6 +20,10 @@ This project it's to test the user spelling skills.</br>
 
 The project layout can be found the this [link](https://www.figma.com/file/JrEhup3mslJ4ob0fFIImB3/EnglishSpellingChecker?node-id=201%3A184)
 
+## Project environments 📚
+
+All project environments might be found at Environments session at [GitHub](https://github.com/GuiMoraesDev/english-spelling-checker) sidebar.
+
 ## Requirements 🛑
 
 ### Mandatory
@@ -81,3 +85,10 @@ Other usefull linters:
 
 - Husky will _verify_ your commits before sent them.
 - Project is using Angular Commits Guide Line, for more information, click on this [link](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-format).
+
+## How to improve this project ⏭️ (by priority)
+
+- Add UTM to track the most used share option;
+- Use Test A/B to try different approaches as mentioned at [layout](https://www.figma.com/file/JrEhup3mslJ4ob0fFIImB3/EnglishSpellingChecker?node-id=201%3A184);
+- Improve de Logo design;
+- Improve the social-media sharable image design;
