@@ -10,6 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
       <Head>
+        {/* Essencial meta tags */}
         <meta name="title" content="English spelling checker" />
         <meta
           name="description"
@@ -27,6 +28,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="Guilherme Moraes <https://github.com/GuiMoraesDev>"
         />
 
+        {/* OG meta tags */}
         <meta property="og:title" content="English spelling checker" />
         <meta property="og:type" content="article" />
         <meta
@@ -37,21 +39,15 @@ function MyApp({ Component, pageProps }: AppProps) {
           property="og:image"
           content="https://english-spelling-checker.vercel.app/favicon.ico"
         />
-        <meta
-          property="og:image"
-          content="https://english-spelling-checker.vercel.app/favicon.ico"
-        />
-        <meta
-          property="og:image"
-          content="https://english-spelling-checker.vercel.app/favicon.ico"
-        />
         <meta property="og:image:width" content="600px" />
         <meta property="og:image:height" content="600px" />
-
         <meta
           property="og:url"
           content="https://english-spelling-checker.vercel.app/home"
         />
+        <meta property="og:site_name" content="English spelling checker" />
+
+        {/* Twitter meta tags */}
         <meta name="twitter:title" content="English spelling checker" />
         <meta
           name="twitter:description"
@@ -61,6 +57,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           name="twitter:image"
           content="https://english-spelling-checker.vercel.app/favicon.ico"
         />
+        <meta name="twitter:image:alt" content="The letter E and S overlaid with a blue gradient in a white background" />
         <meta name="twitter:card" content="summary_large_image" />
 
         <title>English Spelling Checker</title>
