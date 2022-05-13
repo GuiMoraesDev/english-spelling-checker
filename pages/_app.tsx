@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="title" content="English spelling checker" />
         <meta
           name="description"
-          content="English spelling checker it's a funny way to test your English level"
+          content="English spelling checker it's a funny way to test your English level."
         />
         <meta
           name="keywords"
@@ -38,8 +38,28 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="https://english-spelling-checker.vercel.app/favicon.ico"
         />
         <meta
+          property="og:image"
+          content="https://english-spelling-checker.vercel.app/favicon.ico"
+        />
+        <meta
+          property="og:image"
+          content="https://english-spelling-checker.vercel.app/favicon.ico"
+        />
+        <meta property="og:image:width" content="600px" />
+        <meta property="og:image:height" content="600px" />
+
+        <meta
           property="og:url"
           content="https://english-spelling-checker.vercel.app/home"
+        />
+        <meta name="twitter:title" content="English spelling checker" />
+        <meta
+          name="twitter:description"
+          content="English spelling checker it's a funny way to test your English level."
+        />
+        <meta
+          name="twitter:image"
+          content="https://english-spelling-checker.vercel.app/favicon.ico"
         />
         <meta name="twitter:card" content="summary_large_image" />
 
